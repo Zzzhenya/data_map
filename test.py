@@ -21,7 +21,7 @@ def create_graph(dot, df):
 
 def main():
 	#Open and load csvs 
-	df = pd.read_csv('test1.csv'
+	df = pd.read_csv('test1.csv')
 	#Initiate the graph
 	dot = graphviz.Graph()
 	create_graph(dot, df)
