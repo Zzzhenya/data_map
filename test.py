@@ -8,16 +8,16 @@ def draw_graph(dot):
 
 
 def create_graph(dot, df):
-	a = 1
 	dot.attr('node', shape='box', style = "rounded")
 	dot.node('0', "Graph")
 	#Create the Nodes for columns  
 	for i in df.columns:
 		dot.node(i)
 		dot.edge('0', i)
-		dot.node(str(a), str(df.dtypes[i]))
-		dot.edge(i, str(a))
-		a = a + 1
+		dot.node(i + str(df.dtypes[i]), "Dtype: "+ str(df.dtypes[i]))
+		dot.edge(i, i + str(df.dtypes[i]))
+		dot.node(i+str(df[i].count()), "Count: "+ str(df[i].count()))
+		dot.edge(i, i+str(df[i].count()))
 
 def main():
 	#Open and load csvs 
